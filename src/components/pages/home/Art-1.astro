@@ -13,43 +13,44 @@ import Button from "../../common/Button.astro";
 ---
 
 <Section
-  extraClass="py-16 grid-cols-1 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_400px]"
+  extraClass="max-w-[1020px] py-16 grid-cols-1 md:grid-cols-[400px_1fr] gap-8"
 >
-  <article
-    class="min-h-[100px] w-full flex flex-col justify-between items-center md:items-start"
-  >
-    <h1 class="text-4xl md:text-3xl lg:text-5xl font-bold">Imprenta Digital</h1>
-    <h2 class="md:text-1xl lg:text-2xl font-medium">
-      ¡Trabajo Digital Optimizado!
-    </h2>
-    <h3
-      class="text-sm text-center md:text-left md:text-sm lg:text-xl text-white-500"
-    >
-      Autorizados como Imprenta Digital bajo la Providencia SENIAT/INTI/0012 de
-      fecha 17/01/2024.
-    </h3>
-
-    <ul class="py-4 text-white-700 flex flex-col gap-2 md:gap-4">
-      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
-        <IconTime class="min-w-[30px]" /> Agilidad y eficiencia
-      </li>
-      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
-        <IconWallet class="min-w-[30px]" /> Reducción de costos
-      </li>
-      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
-        <IconUpload class="min-w-[30px]" /> Mayor seguridad y control
-      </li>
-    </ul>
-
-    <Button label="Contactanos" extraClass="mb-8 md:mb-0">
-      <ShareTime slot="start" width={20} height={20} />
-    </Button>
-  </article>
-
   <Picture
-    class:list={"w-[300px] mx-auto md:w-full max-h-[500px] aspect-square"}
+    class:list={"w-[300px] mx-auto md:w-full  max-h-[500px] aspect-square"}
     src={GreatingImage}
     formats={["avif", "webp"]}
     alt="Grating image"
   />
+
+  <article
+    class="min-h-[100px] w-full flex flex-col justify-between items-center md:items-start"
+  >
+    <h1 class="text-4xl md:text-3xl lg:text-5xl font-bold">Imprenta Digital</h1>
+    <p
+      class="text-sm text-center md:text-left md:text-sm lg:text-xl text-white-500"
+    >
+      Impulsa tu negocio con nuestra solución de facturación digital.
+    </p>
+
+    <ul
+      class="w-[300px] md:w-auto py-4 text-white-700 flex flex-col gap-2 md:gap-4"
+    >
+      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
+        <IconTime class="min-w-[30px]" /> Automatiza tus procesos, reduce errores
+        y mejora la eficiencia
+      </li>
+      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
+        <IconWallet class="min-w-[30px]" /> Administra tu negocio desde cualquier
+        dispositivo y lugar.
+      </li>
+      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
+        <IconUpload class="min-w-[30px]" /> Contamos con soporte para documento electrónico,
+        lo que garantiza una gestión más ágil y eficiente.
+      </li>
+    </ul>
+
+    <Button extraClass={"mb-4"} label="label">
+      <ShareTime slot="start" width={20} height={20} />
+    </Button>
+  </article>
 </Section>
