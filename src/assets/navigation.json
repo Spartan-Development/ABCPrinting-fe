@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Inicio",
+    "link": "/"
+  },
+  {
+    "label": "Documentación",
+    "link": "/swagger"
+  },
+  {
+    "label": "Imprenta digital",
+    "link": "/portal"
+  }
+]
