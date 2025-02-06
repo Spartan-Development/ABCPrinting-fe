@@ -1,5 +1,59 @@
 ---
+import { Picture } from "astro:assets";
 
+import Section from "src/components/common/Section.astro";
+
+import GreatingImage from "@assets/image.png";
 ---
 
-<section>Hello greating</section>
+<Section extraClass="py-16">
+  <div class="w-[800px] grid grid-cols-3 gap-8">
+    <article class="border border-white-200 shadow-xl">
+      <Picture
+        class:list={"w-full h-[150px]"}
+        src={GreatingImage}
+        formats={["avif", "webp"]}
+        alt="Card Image 1"
+      />
+
+      <div class="min-h-[250px] p-[0.5rem_1rem_1rem_1rem]">
+        <h4 class="mb-2 text-xl">Automatización</h4>
+        <p class="text-sm">Generación y envío automáticos de facturas</p>
+      </div>
+    </article>
+
+    <article class="border border-white-200 shadow-xl">
+      <Picture
+        class:list={"w-full h-[150px]"}
+        src={GreatingImage}
+        formats={["avif", "webp"]}
+        alt="Card Image 2"
+      />
+
+      <div class="min-h-[250px] p-[0.5rem_1rem_1rem_1rem]">
+        <h4 class="mb-2 text-xl">Facturación Digital</h4>
+        <p class="text-sm">
+          La facturación digital es la solución moderna y eficiente para
+          gestionar tus facturas de forma electrónica.
+        </p>
+      </div>
+    </article>
+
+    <article class="border border-white-200 shadow-xl">
+      <Picture
+        class:list={"w-full h-[150px]"}
+        src={GreatingImage}
+        formats={["avif", "webp"]}
+        alt="Card Image 3"
+      />
+
+      <div class="min-h-[250px] p-[0.5rem_1rem_1rem_1rem]">
+        <h4 class="mb-2 text-xl">Seguimiento</h4>
+        <p class="text-sm">
+          Control en tiempo real del estado de tus facturas (pagas, pendientes,
+          vencidas).
+        </p>
+      </div>
+    </article>
+  </div>
+</Section>
