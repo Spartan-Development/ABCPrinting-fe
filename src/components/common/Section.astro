@@ -6,11 +6,6 @@ interface Props {
 const { extraClass } = Astro.props;
 ---
 
-<section
-  class:list={[
-    "max-w-[1280px] mx-auto px-4 grid place-content-center",
-    extraClass,
-  ]}
->
+<section class:list={["mx-auto px-4 py-16 grid place-content-center", extraClass]}>
   <slot />
 </section>

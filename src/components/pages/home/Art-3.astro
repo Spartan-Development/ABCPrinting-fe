@@ -1,0 +1,43 @@
+---
+import { Picture } from "astro:assets";
+
+import GreatingImage from "@assets/image.png";
+
+import IconTime from "@assets/icons/time.svg";
+import IconWallet from "@assets/icons/wallet.svg";
+import IconUpload from "@assets/icons/upload.svg";
+import ShareTime from "@assets/icons/share.svg";
+
+import Section from "../../common/Section.astro";
+import Button from "../../common/Button.astro";
+---
+
+<Section
+  extraClass="max-w-[1020px] py-16 grid-cols-1 md:grid-cols-[400px_1fr] gap-8"
+>
+  <Picture
+    class:list={"w-[300px] mx-auto md:w-full  max-h-[500px] aspect-square"}
+    src={GreatingImage}
+    formats={["avif", "webp"]}
+    alt="Grating image"
+  />
+
+  <article
+    class="min-h-[100px] w-full flex flex-col justify-evenly items-center md:items-start"
+  >
+    <h1 class="text-4xl md:text-3xl lg:text-5xl font-bold">
+      Acceso instantáneo
+    </h1>
+    <p
+      class="text-sm text-center md:text-left md:text-sm lg:text-xl text-white-500"
+    >
+      Nuestra plataforma te ofrece acceso inmediato y seguro a toda tu
+      documentación fiscal, permitiéndote optimizar tus procesos y tomar mejores
+      decisiones
+    </p>
+
+    <Button extraClass={"mb-4"} label="label">
+      <ShareTime slot="start" width={20} height={20} />
+    </Button>
+  </article>
+</Section>
