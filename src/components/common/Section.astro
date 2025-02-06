@@ -1,0 +1,16 @@
+---
+interface Props {
+  extraClass: string;
+}
+
+const { extraClass } = Astro.props;
+---
+
+<section
+  class:list={[
+    "max-w-[1280px] mx-auto px-4 grid place-content-center",
+    extraClass,
+  ]}
+>
+  <slot />
+</section>

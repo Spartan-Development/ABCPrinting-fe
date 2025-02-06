@@ -1,0 +1,47 @@
+---
+import { Picture } from "astro:assets";
+
+import GreatingImage from "@assets/image.png";
+
+import IconTime from "@assets/icons/time.svg";
+import IconWallet from "@assets/icons/wallet.svg";
+import IconUpload from "@assets/icons/upload.svg";
+import ShareTime from "@assets/icons/share.svg";
+
+import Section from "../../common/Section.astro";
+import Button from "../../common/Button.astro";
+---
+
+<Section extraClass="py-8 grid-cols-1 md:grid-cols-[1fr_400px]">
+  <article class="min-h-[100px] w-full">
+    <h1 class="text-5xl font-bold mb-2">Imprenta Digital</h1>
+    <h2 class="text-2xl font-medium mb-4">¡Trabajo Digital Optimizado!</h2>
+    <h3 class="text-xl text-white-500">
+      Autorizados como Imprenta Digital bajo la Providencia SENIAT/INTI/0012 <br
+      /> de fecha 17/01/2024.
+    </h3>
+
+    <ul class="py-4 md:mb-4 text-white-700 flex flex-col gap-4">
+      <li class="flex items-center gap-4">
+        <IconTime /> Agilidad y eficiencia
+      </li>
+      <li class="flex items-center gap-4">
+        <IconWallet /> Reducción de costos
+      </li>
+      <li class="flex items-center gap-4">
+        <IconUpload /> Mayor seguridad y control
+      </li>
+    </ul>
+
+    <Button extraClass={"mb-4"} label="Contactanos">
+      <ShareTime slot="start" width={20} height={20} />
+    </Button>
+  </article>
+
+  <Picture
+    class:list={"w-[300px] mx-auto md:w-full max-h-[500px] aspect-square"}
+    src={GreatingImage}
+    formats={["avif", "webp"]}
+    alt="Grating image"
+  />
+</Section>
