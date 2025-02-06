@@ -1,0 +1,41 @@
+---
+import Button from "src/components/common/Button.astro";
+import Layout from "../layouts/Layout.astro";
+
+import IconHome from "@assets/icons/home.svg";
+---
+
+<Layout title="ABC Printing Digital | Pagina no encontrada">
+  <section class="h-screen flex items-center">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div
+        class="mx-auto max-w-screen-sm text-center flex justify-center items-center flex-col"
+      >
+        <h1
+          class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600"
+        >
+          404
+        </h1>
+        <p
+          class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl"
+        >
+          Upss.
+        </p>
+        <p class="mb-4 text-lg font-light text-gray-500">
+          Lo sentimos, no pudimos encontrar esta pagina.
+        </p>
+        <p class="mb-4 text-lg font-light text-gray-500">
+          Regresa a la pagina de inicio y explora todo lo que ofrecemos.
+        </p>
+        <a href="/">
+          <Button
+            extraClass={"min-w-[150px] mt-8 flex justify-center"}
+            label="Regresar al inicio"
+          >
+            <IconHome slot="end" width={20} height={20} />
+          </Button>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
