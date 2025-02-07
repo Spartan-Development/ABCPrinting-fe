@@ -1,0 +1,60 @@
+---
+interface Props {
+  jsonData: Record<string, any>; // Acepta cualquier objeto JSON
+}
+
+const { jsonData } = Astro.props;
+
+const jsonString = JSON.stringify(jsonData, null, 2); // Formatea el JSON para copiar
+
+function formatJson(
+  json: Record<string, any>,
+  indentLevel: number = 0,
+  isLast: boolean = true,
+): string {
+  const indent = "     ".repeat(indentLevel); // 2 espacios por nivel de indentación
+  let formattedJson = `<span>{</span>\n`;
+  const keys = Object.keys(json);
+
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const value = json[key];
+    const isLastProperty = i === keys.length - 1;
+
+    formattedJson += `${indent}<span class="font-bold text-main-400">"${key}":</span> `;
+
+    if (typeof value === "object" && value !== null) {
+      formattedJson += formatJson(value, indentLevel + 1, isLastProperty);
+    } else {
+      formattedJson += `<span class="text-white-300">${JSON.stringify(value)}</span>${isLastProperty ? "" : "<span>,</span>"}\n`;
+    }
+  }
+
+  formattedJson += `${indent}}${isLast ? "" : "<span>,</span>"}\n`;
+
+  return formattedJson;
+}
+---
+
+<div class="bg-main-950 rounded-md shadow-md relative">
+  <pre
+    class="max-h-[500px] p-4 pb-0 font-mono text-sm text-white-300 overflow-scroll">
+    <code set:html={formatJson(jsonData, 1)} />
+    </pre>
+  <button
+    class="absolute top-2 right-2 bg-main-600 hover:bg-main-400 transition cursor-pointer py-2 px-4 rounded text-xs text-white font-bold"
+    type="button"
+    onclick="navigator.clipboard.writeText(this.dataset.json).then(() => {
+      alert('JSON Copied to Clipboard!');
+    });"
+    data-json={jsonString}
+  >
+    Copy JSON
+  </button>
+</div>
+
+<script>
+  if (typeof window !== "undefined" && navigator.clipboard) {
+    console.log("Clipboard API available");
+  }
+</script>

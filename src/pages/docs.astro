@@ -4,6 +4,8 @@ import { Icon } from "astro-icon/components";
 import Section from "@components/common/Section.astro";
 import Layout from "@layouts/Layout.astro";
 import Menu from "@components/pages/docs/Menu.astro";
+
+import JSONViewer from "@components/pages/docs/JSONViewer.astro";
 ---
 
 <Layout title="ABC Printing Digital | Documentacion">
@@ -15,8 +17,33 @@ import Menu from "@components/pages/docs/Menu.astro";
     <div class="p-4">
       <article>
         <h3>Anular</h3>
-        <h4> <Icon name='user' /> Anulación de documento electrónico</h4>
+
+        <div>
+          <h4><Icon name="user" /> Anulación de documento electrónico</h4>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint minima
+            natus sed, hic in, placeat asperiores accusamus, praesentium dicta
+            laborum deleniti officiis necessitatibus optio. Earum perspiciatis
+            iste eveniet minus est.
+          </p>
+
+          <JSONViewer
+            jsonData={{
+              name: "Ejemplo",
+              version: "1.0.0",
+              dependencies: {
+                react: "^18.0.0",
+                tailwindcss: "^3.0.0",
+              },
+              author: "Tu Nombre",
+              description: "Un ejemplo de objeto JSON.",
+            }}
+          />
+        </div>
       </article>
+
+      
     </div>
   </Section>
 </Layout>
