@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Section from "@components/common/Section.astro";
+import Layout from "@layout/Layout.astro";
+import Menu from "@components/pages/docs/Menu.astro";
+---
+
+<Layout title="ABC Printing Digital | Documentacion">
+  <Section
+    extraClass="pt-[85px] max-w-[1280px] min-h-[100vh] grid-cols-1 md:grid-cols-[1fr_300px] lg:grid-cols-[auto_1fr] gap-4 place-content-start"
+  >
+    <Menu />
+
+    <div class="p-4">
+      <article>
+        <h3>Anular</h3>
+        <h4> <Icon name='user' /> Anulación de documento electrónico</h4>
+      </article>
+    </div>
+  </Section>
+</Layout>
