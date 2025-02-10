@@ -3,7 +3,9 @@ import { Picture } from "astro:assets";
 
 import Section from "@components/common/Section.astro";
 
-import GreatingImage from "@assets/image.png";
+import Art1Image from "@assets/images/galery/1.svg";
+import Art2Image from "@assets/images/galery/2.svg";
+import Art3Image from "@assets/images/galery/3.svg";
 ---
 
 <Section extraClass="py-16">
@@ -11,7 +13,7 @@ import GreatingImage from "@assets/image.png";
     <article class="w-full border border-white-200 shadow-xl">
       <Picture
         class:list={"w-full h-[150px]"}
-        src={GreatingImage}
+        src={Art1Image}
         formats={["avif", "webp"]}
         alt="Card Image 1"
       />
@@ -25,7 +27,7 @@ import GreatingImage from "@assets/image.png";
     <article class="w-full border border-white-200 shadow-xl">
       <Picture
         class:list={"w-full h-[150px]"}
-        src={GreatingImage}
+        src={Art2Image}
         formats={["avif", "webp"]}
         alt="Card Image 2"
       />
@@ -42,7 +44,7 @@ import GreatingImage from "@assets/image.png";
     <article class="w-full border border-white-200 shadow-xl">
       <Picture
         class:list={"w-full h-[150px]"}
-        src={GreatingImage}
+        src={Art3Image}
         formats={["avif", "webp"]}
         alt="Card Image 3"
       />
