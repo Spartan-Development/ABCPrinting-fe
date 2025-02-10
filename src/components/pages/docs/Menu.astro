@@ -149,12 +149,12 @@ const menu = [
 ];
 ---
 
-<aside class="h-full p-4 overflow-scroll">
+<aside class="h-full border-r border-white-200 overflow-scroll">
   <nav>
     <ol>
       {
         menu.map((i) => (
-          <li class="mb-2 text-sm md:text-lg flex items-center gap-2 ">
+          <li class="p-2 border-b border-white-100 hover:bg-white-50 text-sm md:text-lg flex items-center gap-2 cursor-pointer">
             <Icon name={i.icon} /> {i.label}
           </li>
         ))
