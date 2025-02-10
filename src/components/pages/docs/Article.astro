@@ -2,6 +2,21 @@
 import IconArrowUp from "@icons/arrow-up.svg";
 
 import JSONViewer from "./JSONViewer.astro";
+
+interface Props {
+  data: {
+    title: string;
+    icon: string;
+    subtitle: string;
+    method: "POST" | "GET" | "PUT";
+    url: string;
+    headers: { key: string; type: string; desc: string; isRequired: boolean }[];
+    req: any;
+  };
+}
+
+const { data } = Astro.props;
+const { title, subtitle, method, url, headers, req } = data;
 ---
 
 <article class="mb-4">
@@ -10,20 +25,18 @@ import JSONViewer from "./JSONViewer.astro";
       <IconArrowUp slot="start" width={40} height={40} />
     </div>
 
-    <h3 class="text-3xl font-bold">Autenticación</h3>
+    <h3 class="text-3xl font-bold">{title}</h3>
   </div>
 
   <div class:list={[{ hidden: false }, "pl-10 flex flex-col gap-2"]}>
-    <h4 class="text-xl text-white-700">Solicitud Token de Autenticación</h4>
+    <h4 class="text-xl text-white-700">{subtitle}</h4>
 
     <span class="flex items-center gap-2">
       <span
         class="py-2 px-[1rem_1.5rem] text-white-50 font-bold bg-main-950 rounded-r-full"
-        >POST</span
+        >{method}</span
       >
-      <span class="text-main-950"
-        >https://temp.cgimprenta.com/api/Invoice/create_token_authenticator</span
-      >
+      <span class="text-main-950">{url}</span>
     </span>
 
     <div class="relative overflow-x-auto bg-main-950 rounded-xl">
@@ -32,7 +45,7 @@ import JSONViewer from "./JSONViewer.astro";
           >Headers
         </caption>
 
-        <thead class=" text-white-100 bg-main-900">
+        <thead class="text-white-100 bg-main-900">
           <tr>
             <th scope="col" class="px-3 py-2"> Campo </th>
             <th scope="col" class="px-3 py-2"> Tipo </th>
@@ -40,32 +53,26 @@ import JSONViewer from "./JSONViewer.astro";
           </tr>
         </thead>
         <tbody>
-          <tr class="bg-main-900 text-white-200 border-t-1 border-main-800">
-            <td class="px-3 py-2 relative">
-              Content-Type
-              <span
-                class="absolute right-0 bg-red-300 text-red-800 text-xs font-bold me-2 px-2.5 py-0.5 rounded-sm"
-                >Red</span
-              >
-            </td>
-            <td class="px-3 py-2"> String </td>
-            <td class="px-3 py-2"> application/json </td>
-          </tr>
+          {
+            headers.map((h) => (
+              <tr class="bg-main-900 text-white-200 border-t-1 border-main-800">
+                <td class="px-3 py-2 relative">
+                  {h.key}
+                  {h.isRequired && (
+                    <span class="absolute right-0 bg-red-300 text-red-800 text-xs font-bold me-2 px-2.5 py-0.5 rounded-sm">
+                      Requerido
+                    </span>
+                  )}
+                </td>
+                <td class="px-3 py-2"> {h.type} </td>
+                <td class="px-3 py-2"> {h.desc} </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
 
-    <JSONViewer
-      jsonData={{
-        name: "Ejemplo",
-        version: "1.0.0",
-        dependencies: {
-          react: "^18.0.0",
-          tailwindcss: "^3.0.0",
-        },
-        author: "Tu Nombre",
-        description: "Un ejemplo de objeto JSON.",
-      }}
-    />
+    <JSONViewer jsonData={req} />
   </div>
 </article>

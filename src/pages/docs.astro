@@ -1,23 +1,35 @@
 ---
+import { source } from "@assets/data";
+
 import Layout from "@layouts/Layout.astro";
-import Menu from "@components/pages/docs/Menu.astro";
 import Section from "@components/common/Section.astro";
 
 import Article from "@components/pages/docs/Article.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="ABC Printing Digital | Documentacion">
   <Section
-    extraClass="pt-[85px] max-w-[1280px] min-h-[100vh] h-[100vh] grid-cols-1 lg:grid-cols-[150px_1fr] place-content-start"
+    extraClass="pt-[85px] max-w-[1280px] min-h-[100vh] h-[100vh] grid-cols-1 lg:grid-cols-[200px_1fr] place-content-start"
   >
-    <Menu />
+    <aside
+      class="hidden lg:flex h-full border-r border-white-200 overflow-scroll"
+    >
+      <nav>
+        <ol>
+          {
+            source.map((i: any) => (
+              <li class="p-2 border-b border-white-100 hover:bg-white-50 text-sm md:text-lg flex items-center gap-2 cursor-pointer">
+                <Icon name={i.icon} /> {i.title}
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+    </aside>
 
     <div class="h-full lg:p-4 overflow-scroll">
-      <Article />
-      <Article />
-      <Article />
-      <Article />
-      <Article />
+      {source.map((i: any) => <Article data={i} />)}
     </div>
   </Section>
 </Layout>
