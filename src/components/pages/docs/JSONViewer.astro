@@ -1,4 +1,6 @@
 ---
+import IconShare from "@icons/share.svg";
+
 interface Props {
   jsonData: Record<string, any>; // Acepta cualquier objeto JSON
 }
@@ -36,9 +38,12 @@ function formatJson(
 }
 ---
 
-<div class="bg-main-950 shadow-md relative">
+<div class="p-2 bg-main-950 shadow-md relative rounded-xl">
+  <p class="text-white-300 flex gap-2">
+    <IconShare slot="start" width={20} height={20} /> Example request
+  </p>
   <pre
-    class="max-h-[500px] p-4 pb-0 font-mono text-sm text-white-300 overflow-scroll">
+    class="max-h-[500px] pt-4 font-mono text-sm text-white-300 overflow-scroll">
     <code set:html={formatJson(jsonData, 1)} />
     </pre>
   <button

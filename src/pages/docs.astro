@@ -1,85 +1,23 @@
 ---
-import IconArrowUp from "@icons/arrow-up.svg";
-
-import { Icon } from "astro-icon/components";
-
-import Section from "@components/common/Section.astro";
 import Layout from "@layouts/Layout.astro";
 import Menu from "@components/pages/docs/Menu.astro";
+import Section from "@components/common/Section.astro";
 
-import JSONViewer from "@components/pages/docs/JSONViewer.astro";
+import Article from "@components/pages/docs/Article.astro";
 ---
 
 <Layout title="ABC Printing Digital | Documentacion">
   <Section
-    extraClass="pt-[85px] max-w-[1280px] min-h-[100vh] grid-cols-[150px_1fr] place-content-start"
+    extraClass="pt-[85px] max-w-[1280px] min-h-[100vh] h-[100vh] grid-cols-[150px_1fr] place-content-start"
   >
     <Menu />
 
-    <div class="p-4 overflow-scroll">
-      <article>
-        <div class="flex items-center">
-          <div class="flex justify-center items-center">
-            <IconArrowUp slot="start" width={40} height={40} />
-          </div>
-
-          <h3 class="text-3xl font-bold">Autenticación</h3>
-        </div>
-
-        <div class:list={[{ hidden: false }, "pl-10 flex flex-col gap-2"]}>
-          <h4 class="text-xl text-white-700">
-            Solicitud Token de Autenticación
-          </h4>
-
-          <span class="flex items-center gap-2">
-            <span
-              class="py-2 px-[1rem_1.5rem] text-white-50 font-bold bg-main-950 rounded-r-full"
-              >POST</span
-            >
-            <span class="text-main-950"
-              >https://temp.cgimprenta.com/api/Invoice/create_token_authenticator</span
-            >
-          </span>
-
-          <div class="relative overflow-x-auto bg-main-950">
-            <table class="w-full text-sm text-left">
-              <caption class="p-3 text-xl text-left text-white-50 bg-main-950"
-                >Headers
-              </caption>
-
-              <thead class="text-lg text-white-100 bg-main-900">
-                <tr>
-                  <th scope="col" class="px-3 py-2"> Campo </th>
-                  <th scope="col" class="px-3 py-2"> Tipo </th>
-                  <th scope="col" class="px-3 py-2"> Descripcion </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  class="bg-main-900 text-white-100 border-t-1 border-main-800"
-                >
-                  <td class="px-3 py-2"> Content-Type </td>
-                  <td class="px-3 py-2"> String </td>
-                  <td class="px-3 py-2"> application/json </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <JSONViewer
-            jsonData={{
-              name: "Ejemplo",
-              version: "1.0.0",
-              dependencies: {
-                react: "^18.0.0",
-                tailwindcss: "^3.0.0",
-              },
-              author: "Tu Nombre",
-              description: "Un ejemplo de objeto JSON.",
-            }}
-          />
-        </div>
-      </article>
+    <div class="h-full p-4 overflow-scroll">
+      <Article />
+      <Article />
+      <Article />
+      <Article />
+      <Article />
     </div>
   </Section>
 </Layout>
