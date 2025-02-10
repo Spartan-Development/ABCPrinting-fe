@@ -1,8 +1,7 @@
 ---
-import { ClientRouter } from "astro:transitions";
 
-import "../styles/global.css";
 
+import Head from "@components/common/Head.astro";
 import Header from "../components/common/Header.astro";
 
 interface Props {
@@ -14,14 +13,7 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/logo.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <ClientRouter />
-  </head>
+  <Head title={title} />
 
   <body>
     <Header />

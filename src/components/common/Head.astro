@@ -1,0 +1,37 @@
+---
+import "../../styles/global.css";
+
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+
+  <link rel="icon" href="/logo.ico" />
+
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="author" content="EliezerMezaDev" />
+
+  <meta
+    name="keywords"
+    content="Lading Page, Venezuela, Facturacion, Facturacion digital, SENIAT, SENIAT/INTI/0012"
+  />
+
+  <meta
+    name="description"
+    content="Sitio web de la empresa de facturacion digital ABC Printing Digital. Ubicada en Porlamar, Nueva Esparta, Venezuela"
+  />
+
+  <meta name="robots" content="index, follow" />
+
+  <ClientRouter />
+
+  <title>{title}</title>
+</head>
