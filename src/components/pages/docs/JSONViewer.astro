@@ -2,10 +2,12 @@
 import IconShare from "@icons/share.svg";
 
 interface Props {
-  jsonData: Record<string, any>
+  label: string;
+  extraClass?: string;
+  jsonData: Record<string, any>;
 }
 
-const { jsonData } = Astro.props;
+const { label, extraClass, jsonData } = Astro.props;
 
 const jsonString = JSON.stringify(jsonData, null, 2); // Formatea el JSON para copiar
 
@@ -38,9 +40,10 @@ function formatJson(
 }
 ---
 
-<div class="p-2 bg-main-950 shadow-md relative rounded-xl">
+<div class:list={["p-2 shadow-md relative rounded-xl bg-main-950"]}>
   <p class="text-white-300 flex gap-2">
-    <IconShare slot="start" width={20} height={20} /> Example request
+    <IconShare slot="start" width={20} height={20} />
+    {label}
   </p>
   <pre
     class="max-h-[500px] pt-4 font-mono text-sm text-white-300 overflow-scroll">
