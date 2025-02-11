@@ -1,0 +1,80 @@
+---
+import { Picture } from "astro:assets";
+
+import logo from "@assets/images/common/logo.svg";
+
+//
+//
+//
+
+import { Icon } from "astro-icon/components";
+
+import FooterImage from "@assets/images/galery/footer.svg";
+
+import SOCIAL_NETWORKS from "@assets/social-networks.json";
+import LINKS from "@assets/navigation.json";
+---
+
+<footer
+  class="w-full min-h-[300px] bg-main-950 flex flex-col justify-center items-center gap-4"
+>
+  <div
+    class="max-w-[1280px] w-full mx-auto h-full border-white border-b-2 grid place-content-center sm:grid-cols-[300px_1fr_300px]"
+  >
+    <div class="py-8 flex flex-col gap-8">
+      <a href="/">
+        <Picture
+          class:list={"w-[125px] h-[75px]"}
+          src={logo}
+          formats={["avif", "webp"]}
+          alt="ABC Printing Logo"
+        />
+      </a>
+
+      <p class="text-white pl-2">
+        Toma el control de tus finanzas con nuestra solución de facturación
+        digital. Facturación sencilla y seguimiento preciso de tus gastos.
+      </p>
+
+      <ul class="pl-2 flex gap-4">
+        {
+          SOCIAL_NETWORKS.map((i) => (
+            <li class="p-2 bg-white hover:bg-main-300 rounded-full flex justify-center items-center">
+              <a href={i.link} class="text-main-950">
+                <Icon name={i.icon} width={25} height={25} />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div></div>
+
+    <div class="pt-8 flex flex-col justify-between items-center">
+      <nav role="navigation" class="mb-16">
+        <ul class="flex flex-col gap-2">
+          {
+            LINKS.map((l) => (
+              <li>
+                <a href={l.link} class="text-white hover:text-main-300">
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <Picture
+        class:list={"w-[300px]"}
+        src={FooterImage}
+        formats={["avif", "webp"]}
+        alt="Footer image"
+      />
+    </div>
+  </div>
+  <div class="pb-4 text-white">
+    ABC Digital Printing C.A. &copy; - Todos los Derechos Reservados 2025
+  </div>
+</footer>
