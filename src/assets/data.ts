@@ -16,13 +16,13 @@ export const source: data[] = [
     icon: "key",
     subtitle: "",
     method: "POST",
-    url: "http://localhost:9000/login",
+    url: "BaseURL + '/login'",
     headers: [
       {
         key: "Content-Type",
         type: "string",
         desc: "",
-        isRequired: true,
+        isRequired: false,
       },
     ],
     req: {
@@ -61,12 +61,18 @@ export const source: data[] = [
     icon: "receipt",
     subtitle: "",
     method: "POST",
-    url: "http://localhost:9000/emision",
+    url: "BaseURL + '/emision'",
     headers: [
       {
         key: "Content-Type",
         type: "string",
         desc: "",
+        isRequired: false,
+      },
+      {
+        key: "token",
+        type: "string",
+        desc: "Token de sesion",
         isRequired: true,
       },
     ],
@@ -89,14 +95,14 @@ export const source: data[] = [
           },
           vendedor: {
             codigo: "05",
-            nombre: "jaimeeeeee",
+            nombre: "[NOMBRE VENDEDOR]eeeee",
             num_cajero: "125",
           },
           comprador: {
             tipo_identificacion: "J",
-            numero_identificacion: "26164403",
-            razon_social: "DANIEL",
-            direccion: "LECHERIAS",
+            numero_identificacion: "29000123",
+            razon_social: "[RAZON SOCIAL]",
+            direccion: "[DIRECCION COMPRADOR]",
             pais: "VE",
             notificar: "NO",
             telefonos: ["string"],
@@ -206,18 +212,23 @@ export const source: data[] = [
       },
     ],
   },
-
   {
     title: "Nota de Credito",
     icon: "receipt",
     subtitle: "",
     method: "POST",
-    url: "http://localhost:9000/emision",
+    url: "BaseURL + '/emision'",
     headers: [
       {
         key: "Content-Type",
         type: "string",
         desc: "",
+        isRequired: false,
+      },
+      {
+        key: "token",
+        type: "string",
+        desc: "Token de sesion",
         isRequired: true,
       },
     ],
@@ -245,14 +256,14 @@ export const source: data[] = [
           },
           vendedor: {
             codigo: "05",
-            nombre: "jaime",
+            nombre: "[NOMBRE VENDEDOR]",
             num_cajero: "125",
           },
           comprador: {
             tipo_identificacion: "J",
-            numero_identificacion: "26164403",
-            razon_social: "DANIEL",
-            direccion: "LECHERIAS",
+            numero_identificacion: "29000123",
+            razon_social: "[RAZON SOCIAL]",
+            direccion: "[DIRECCION COMPRADOR]",
             pais: "VE",
             notificar: "NO",
             telefonos: ["string"],
@@ -343,12 +354,18 @@ export const source: data[] = [
     icon: "receipt",
     subtitle: "",
     method: "POST",
-    url: "http://localhost:9000/emision",
+    url: "BaseURL + '/emision'",
     headers: [
       {
         key: "Content-Type",
         type: "string",
         desc: "",
+        isRequired: false,
+      },
+      {
+        key: "token",
+        type: "string",
+        desc: "Token de sesion",
         isRequired: true,
       },
     ],
@@ -378,14 +395,14 @@ export const source: data[] = [
           },
           vendedor: {
             codigo: "05",
-            nombre: "jaime",
+            nombre: "[NOMBRE VENDEDOR]",
             num_cajero: "125",
           },
           comprador: {
             tipo_identificacion: "J",
-            numero_identificacion: "26164403",
-            razon_social: "DANIEL",
-            direccion: "LECHERIAS",
+            numero_identificacion: "29000123",
+            razon_social: "[RAZON SOCIAL]",
+            direccion: "[DIRECCION COMPRADOR]",
             pais: "VE",
             notificar: "NO",
             telefonos: ["string"],
@@ -477,12 +494,18 @@ export const source: data[] = [
     icon: "receipt-tax",
     subtitle: "",
     method: "POST",
-    url: "http://localhost:9000/aplicar/retencion",
+    url: "BaseURL + '/aplicar/retencion'",
     headers: [
       {
         key: "Content-Type",
         type: "string",
         desc: "",
+        isRequired: false,
+      },
+      {
+        key: "token",
+        type: "string",
+        desc: "Token de sesion",
         isRequired: true,
       },
     ],
@@ -530,12 +553,18 @@ export const source: data[] = [
     icon: "receipt-off",
     subtitle: "",
     method: "POST",
-    url: "http://localhost:9000/anular",
+    url: "BaseURL + '/anular'",
     headers: [
       {
         key: "Content-Type",
         type: "string",
         desc: "",
+        isRequired: false,
+      },
+      {
+        key: "token",
+        type: "string",
+        desc: "Token de sesion",
         isRequired: true,
       },
     ],
