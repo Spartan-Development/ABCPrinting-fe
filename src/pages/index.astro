@@ -1,11 +1,24 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Greating from "@components/pages/home/Greating.astro";
+import Cards from "@components/pages/home/Cards.astro";
+import Art1 from "@components/pages/home/Art-1.astro";
+import Art2 from "@components/pages/home/Art-2.astro";
+import Art3 from "@components/pages/home/Art-3.astro";
+import Art4 from "@components/pages/home/Art-4.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="ABC Printing Digital">
+  <Greating />
+
+  <Cards />
+
+  <Art1 />
+
+  <Art2 />
+
+  <Art3 />
+
+  <Art4 />
 </Layout>

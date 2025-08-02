@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@config "../../tailwind.config.js";
+
+@font-face {
+  font-family: Nunito;
+  src: url(../assets//fonts//nunito/Nunito-Regular.ttf);
+}
+
+* {
+  font-family: Nunito;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}

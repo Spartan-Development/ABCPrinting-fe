@@ -1,0 +1,61 @@
+---
+import { Picture } from "astro:assets";
+
+import Section from "@components/common/Section.astro";
+
+import Art1Image from "@assets/images/galery/1.svg";
+import Art2Image from "@assets/images/galery/2.svg";
+import Art3Image from "@assets/images/galery/3.svg";
+---
+
+<Section extraClass="py-16">
+  <div class="w-[250px] md:w-[760px] grid md:grid-cols-3 gap-2 md:gap-8">
+    <article class="w-full border border-white-200 shadow-xl">
+      <Picture
+        class:list={"w-full h-[150px]"}
+        src={Art1Image}
+        formats={["avif", "webp"]}
+        alt="Card Image 1"
+      />
+
+      <div class="min-h-[250px] p-[0.5rem_1rem_1rem_1rem]">
+        <h4 class="mb-2 text-xl">Automatización</h4>
+        <p class="text-sm">Generación y envío automáticos de facturas</p>
+      </div>
+    </article>
+
+    <article class="w-full border border-white-200 shadow-xl">
+      <Picture
+        class:list={"w-full h-[150px]"}
+        src={Art2Image}
+        formats={["avif", "webp"]}
+        alt="Card Image 2"
+      />
+
+      <div class="min-h-[250px] p-[0.5rem_1rem_1rem_1rem]">
+        <h4 class="mb-2 text-lg md:text-xl">Facturación Digital</h4>
+        <p class="text-xs md:text-sm">
+          La facturación digital es la solución moderna y eficiente para
+          gestionar tus facturas de forma electrónica.
+        </p>
+      </div>
+    </article>
+
+    <article class="w-full border border-white-200 shadow-xl">
+      <Picture
+        class:list={"w-full h-[150px]"}
+        src={Art3Image}
+        formats={["avif", "webp"]}
+        alt="Card Image 3"
+      />
+
+      <div class="min-h-[250px] p-[0.5rem_1rem_1rem_1rem]">
+        <h4 class="mb-2 text-lg md:text-xl">Seguimiento</h4>
+        <p class="text-xs md:text-sm">
+          Control en tiempo real del estado de tus facturas (pagas, pendientes,
+          vencidas).
+        </p>
+      </div>
+    </article>
+  </div>
+</Section>

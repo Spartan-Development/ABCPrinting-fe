@@ -1,0 +1,56 @@
+---
+import { Picture } from "astro:assets";
+
+import ArtImage from "@assets/images/galery/4.svg";
+
+import IconTime from "@icons/time.svg";
+import IconWallet from "@icons/wallet.svg";
+import IconUpload from "@icons/upload.svg";
+import IconSend from "@icons/send.svg";
+
+import Section from "../../common/Section.astro";
+import Button from "../../common/Button.astro";
+---
+
+<Section
+  extraClass="max-w-[1020px] py-16 grid-cols-1 md:grid-cols-[400px_1fr] gap-8"
+>
+  <Picture
+    class:list={"w-[300px] mx-auto md:w-full  max-h-[500px] aspect-square"}
+    src={ArtImage}
+    formats={["avif", "webp"]}
+    alt="Grating image"
+  />
+
+  <article
+    class="min-h-[100px] w-full flex flex-col justify-between items-center md:items-start"
+  >
+    <h1 class="text-4xl md:text-3xl lg:text-5xl font-bold">Imprenta Digital</h1>
+    <p
+      class="text-sm text-center md:text-left md:text-sm lg:text-xl text-white-500"
+    >
+      Impulsa tu negocio con nuestra solución de facturación digital.
+    </p>
+
+    <ul
+      class="w-[300px] md:w-auto py-4 text-white-700 flex flex-col gap-2 md:gap-4"
+    >
+      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
+        <IconTime class="min-w-[30px]" /> Automatiza tus procesos, reduce errores
+        y mejora la eficiencia
+      </li>
+      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
+        <IconWallet class="min-w-[30px]" /> Administra tu negocio desde cualquier
+        dispositivo y lugar.
+      </li>
+      <li class="text-sm md:text-lg flex items-center gap-2 md:gap-4">
+        <IconUpload class="min-w-[30px]" /> Contamos con soporte para documento electrónico,
+        lo que garantiza una gestión más ágil y eficiente.
+      </li>
+    </ul>
+
+    <Button extraClass={"mb-4"} label="label">
+      <IconSend slot="start" width={20} height={20} />
+    </Button>
+  </article>
+</Section>

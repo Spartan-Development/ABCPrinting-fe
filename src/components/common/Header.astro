@@ -1,0 +1,50 @@
+---
+import { Picture } from "astro:assets";
+
+import logo from "@/abc/assets/images/common/logo-blue.svg";
+import IconUser from "@icons/user.svg";
+
+import LINKS from "@assets/navigation.json";
+import Button from "./Button.astro";
+---
+
+<header class="w-full h-[85px] bg-white shadow fixed z-10">
+  <div
+    class="max-w-[1280px] w-full mx-auto h-full grid grid-cols-[100px_1fr] place-content-center sm:grid-cols-[200px_1fr]"
+  >
+    <div class="h-full">
+      <a href="/">
+        <Picture
+          class:list={"w-[100px] h-[75px]"}
+          src={logo}
+          formats={["avif", "webp"]}
+          alt="ABC Printing Logo"
+        />
+      </a>
+    </div>
+
+    <div class="h-full pr-2 flex items-center justify-end gap-8">
+      <nav role="navigation">
+        <ul class="flex gap-8">
+          {
+            LINKS.map((l) => (
+              <li>
+                <a href={l.link} class="text-main-950 hover:text-main-800">
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="hidden md:flex">
+        <a href="#">
+          <Button label="Iniciar sesión">
+            <IconUser slot="start" width={20} height={20} />
+          </Button>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

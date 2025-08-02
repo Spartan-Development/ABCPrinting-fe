@@ -1,0 +1,76 @@
+---
+import { source } from "@assets/data";
+
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/common/Section.astro";
+
+import Article from "@components/pages/docs/Article.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="ABC Printing Digital | Documentacion">
+  <Section
+    extraClass="pt-[85px] max-w-[1280px] min-h-[100vh] h-[100vh] grid-cols-1 lg:grid-cols-[200px_1fr] place-content-start"
+  >
+    <aside
+      class="hidden lg:flex h-full border-r border-white-200 overflow-scroll"
+    >
+      <nav class="w-full">
+        <ol class="w-full">
+          {
+            source.map((i: any, index: number) => (
+              <a id={`accr_${index}`} href={`#art_${index}`}>
+                <li class="w-full p-2 border-b border-white-100 hover:bg-white-50 text-sm md:text-md flex items-center gap-2 cursor-pointer">
+                  <Icon name={i.icon} width={20} height={20} /> {i.title}
+                </li>
+              </a>
+            ))
+          }
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="h-full px-8 lg:p-4 overflow-scroll scroll-smooth">
+      {
+        source.map((i: any, index: number) => (
+          <Article data={i} index={index} />
+        ))
+      }
+    </div>
+  </Section>
+</Layout>
+
+<script>
+  import { source } from "@assets/data";
+
+  setTimeout(() => {
+    source.map((i: any, index: number) => {
+      const icon = document.getElementById(`icon_${index}`);
+      const body = document.getElementById(`body_${index}`);
+
+      document
+        .getElementById(`head_${index}`)
+        ?.addEventListener("click", () => {
+          if (body?.classList.contains("grid-rows-[0fr]")) {
+            body?.classList.remove("grid-rows-[0fr]");
+            body?.classList.add("grid-rows-[1fr]");
+            icon?.classList.add("rotate-180");
+          } else {
+            body?.classList.add("grid-rows-[0fr]");
+            body?.classList.remove("grid-rows-[1fr]");
+            icon?.classList.remove("rotate-180");
+          }
+        });
+
+      document
+        .getElementById(`accr_${index}`)
+        ?.addEventListener("click", () => {
+          body?.classList.remove("grid-rows-[0fr]");
+          body?.classList.add("grid-rows-[1fr]");
+          icon?.classList.add("rotate-180");
+        });
+    });
+
+    function toggleAccd(_index: number) {}
+  }, 300);
+</script>

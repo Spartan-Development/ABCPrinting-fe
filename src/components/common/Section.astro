@@ -1,0 +1,11 @@
+---
+interface Props {
+  extraClass: string;
+}
+
+const { extraClass } = Astro.props;
+---
+
+<section class:list={["mx-auto px-4 grid place-content-center", extraClass]}>
+  <slot />
+</section>

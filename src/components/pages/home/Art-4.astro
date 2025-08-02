@@ -1,0 +1,39 @@
+---
+import { Picture } from "astro:assets";
+
+import ArtImage from "@assets/images/galery/7.svg";
+
+import ShareTime from "@icons/send.svg";
+
+import Section from "../../common/Section.astro";
+import Button from "../../common/Button.astro";
+---
+
+<Section
+  extraClass="max-w-[1020px] py-16 grid-cols-1 md:grid-cols-[1fr_400px] gap-8"
+>
+  <article
+    class="min-h-[100px] w-full flex flex-col justify-evenly items-center md:items-start"
+  >
+    <h1 class="text-4xl md:text-3xl lg:text-5xl font-bold">
+      Elige la seguridad y la confianza
+    </h1>
+    <p
+      class="text-sm text-center md:text-left md:text-sm lg:text-xl text-white-500"
+    >
+      Protege tu negocio y evita sanciones fiscales. Nuestra facturación digital
+      está respaldada por la autorización SENIAT/INTI/0012.
+    </p>
+
+    <Button extraClass={"mb-4"} label="label">
+      <ShareTime slot="start" width={20} height={20} />
+    </Button>
+  </article>
+
+  <Picture
+    class:list={"w-[300px] mx-auto md:w-full  max-h-[500px] aspect-square"}
+    src={ArtImage}
+    formats={["avif", "webp"]}
+    alt="Grating image"
+  />
+</Section>
